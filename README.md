@@ -4,7 +4,7 @@ Terraform module which deploy's the Kubernetes dashboard to an existing cluster.
 
 The following Kubernetes resources are created for this deployment:
 
-``` sh
+```sh
 Secret
 Service Account
 Role
@@ -25,13 +25,13 @@ The cause of the issue is the provider is unable to change the value of `automou
 
 To work around this issue once the terraform is applied successfully you need to edit the deployment and change the value of `automountServiceAccountToken` to `true`.
 
-``` sh
+```sh
 kubectl edit deployment -n kube-system kubernetes-dashboard
 ```
 
 Change the key value to `true` then save and exit the file.
 
-``` sh
+```sh
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -52,7 +52,7 @@ Terraform version 0.11.7 or newer is required for this module to work.
 
 ## Examples
 
-* [Simple Dashboard](examples/simple-dashboard/main.tf)
+* [Simple Dashboard](https://github.com/MarvelOrange/terraform-kubernetes-dashboard/tree/master/examples/simple-dashboard)
 
 ## Inputs
 

@@ -6,6 +6,7 @@ provider "kubernetes" {}
 #################################
 # Kubernetes Dashboard Deployment
 #################################
-module "kubernetes_dashboard" {
-  source = "../../"
+module "dashboard_example_simple-dashboard" {
+  source  = "MarvelOrange/dashboard/kubernetes"
+  version = "0.1.0"
 }
