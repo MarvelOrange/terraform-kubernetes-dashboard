@@ -78,6 +78,6 @@ Currently no outputs of this module.
 
 Module is maintained by Ben Prudence.
 
-## License
+## License
 
 Apache 2 Licensed. See LICENSE for full details.
