@@ -10,7 +10,7 @@ resource "kubernetes_secret" "dashboard" {
     name      = "${var.app_name}-certs"
     namespace = "${var.namespace}"
 
-    labels {
+    labels = {
       k8s-app = "${var.app_name}"
     }
   }
@@ -26,7 +26,7 @@ resource "kubernetes_service_account" "dashboard" {
     name      = "${var.app_name}"
     namespace = "${var.namespace}"
 
-    labels {
+    labels = {
       k8s-app = "${var.app_name}"
     }
   }
@@ -115,7 +115,7 @@ resource "kubernetes_deployment" "dashboard" {
     name      = "${var.app_name}"
     namespace = "${var.namespace}"
 
-    labels {
+    labels = {
       k8s-app = "${var.app_name}"
     }
   }
@@ -125,7 +125,7 @@ resource "kubernetes_deployment" "dashboard" {
     revision_history_limit = "${var.revision_history_limit}"
 
     selector {
-      match_labels {
+      match_labels = {
         k8s-app = "${var.app_name}"
       }
     }
@@ -134,7 +134,7 @@ resource "kubernetes_deployment" "dashboard" {
       metadata {
         namespace = "${var.namespace}"
 
-        labels {
+        labels = {
           k8s-app = "${var.app_name}"
         }
       }
@@ -185,7 +185,7 @@ resource "kubernetes_deployment" "dashboard" {
 
         volume {
           name      = "tmp-volume"
-          empty_dir = [{}]
+          //empty_dir = [{}]
         }
 
         service_account_name = "${var.app_name}"
@@ -202,7 +202,7 @@ resource "kubernetes_service" "dashboard" {
     name      = "${var.app_name}"
     namespace = "${var.namespace}"
 
-    labels {
+    labels = {
       k8s-app = "${var.app_name}"
     }
   }
@@ -215,7 +215,7 @@ resource "kubernetes_service" "dashboard" {
 
     type = "${var.service_type}"
 
-    selector {
+    selector = {
       k8s-app = "${var.app_name}"
     }
   }
