@@ -185,7 +185,7 @@ resource "kubernetes_deployment" "dashboard" {
 
         volume {
           name      = "tmp-volume"
-          //empty_dir = [{}]
+          empty_dir {}
         }
 
         service_account_name = "${var.app_name}"
